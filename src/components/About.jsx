@@ -31,26 +31,26 @@ export default function About() {
               </div>
             </div>
             
-            <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-6">
-              <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-8 border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none flex flex-col justify-center">
+            <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 sm:gap-6">
+              <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-6 sm:p-8 border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none flex flex-col justify-center">
                 <h4 className="text-5xl lg:text-6xl font-black mb-2 text-gray-900 dark:text-white">9.01</h4>
                 <p className="text-gray-500 dark:text-gray-400 uppercase tracking-widest font-bold text-sm">CGPA</p>
               </div>
               
-              <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-8 border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none flex flex-col justify-center">
-                <h4 className="text-5xl lg:text-6xl font-black mb-2 text-gray-900 dark:text-white">1200<span className="text-blue-600">+</span></h4>
+              <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-6 sm:p-8 border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none flex flex-col justify-center">
+                <h4 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2 text-gray-900 dark:text-white">1200<span className="text-blue-600">+</span></h4>
                 <p className="text-gray-500 dark:text-gray-400 uppercase tracking-widest font-bold text-sm">DSA Problems Solved</p>
               </div>
               
-              <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-8 border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none flex flex-col justify-center col-span-2 lg:col-span-1">
-                <div className="flex justify-between items-end">
+              <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-6 sm:p-8 border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none flex flex-col justify-center sm:col-span-2 lg:col-span-1">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
                   <div>
-                    <h4 className="text-4xl font-black mb-1 text-gray-900 dark:text-white">1800+</h4>
-                    <p className="text-gray-500 dark:text-gray-400 font-medium text-sm">Rating</p>
+                    <h4 className="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-black mb-1 text-gray-900 dark:text-white">1800+</h4>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium text-sm uppercase tracking-widest sm:normal-case sm:tracking-normal">Rating</p>
                   </div>
-                  <div className="text-right">
-                    <h4 className="text-4xl font-black mb-1 text-gray-900 dark:text-white">Top 7%</h4>
-                    <p className="text-gray-500 dark:text-gray-400 font-medium text-sm">Global Rank</p>
+                  <div className="sm:text-right">
+                    <h4 className="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-black mb-1 text-gray-900 dark:text-white">Top 7%</h4>
+                    <p className="text-gray-500 dark:text-gray-400 font-medium text-sm uppercase tracking-widest sm:normal-case sm:tracking-normal">Global Rank</p>
                   </div>
                 </div>
               </div>

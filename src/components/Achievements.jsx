@@ -123,7 +123,7 @@ export default function Achievements() {
                                         transition={{ duration: 0.5, delay: idx * 0.1 }}
                                         className={`group relative bg-white dark:bg-[#111827] p-8 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/40 dark:shadow-none hover:-translate-y-1 transition-all duration-500 ${honor.border}`}
                                     >
-                                        <div className="flex gap-6 items-start">
+                                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
                                             <div className={`p-4 rounded-2xl ${honor.bg} ${honor.color} shrink-0`}>
                                                 <Icon className="w-8 h-8" />
                                             </div>
@@ -168,10 +168,10 @@ export default function Achievements() {
                                 <div className="relative overflow-hidden bg-white dark:bg-[#111827] border border-gray-100 dark:border-gray-800 p-8 md:p-10 rounded-[2.5rem] shadow-xl hover:shadow-2xl hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-500 h-full flex flex-col justify-center group">
                                     <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500 opacity-0 group-hover:opacity-10 blur-3xl rounded-full pointer-events-none transition-opacity duration-500" />
 
-                                    <div className="flex justify-between items-start mb-6" style={{ transform: "translateZ(40px)" }}>
+                                    <div className="flex flex-wrap justify-between items-start gap-4 mb-6" style={{ transform: "translateZ(40px)" }}>
                                         <div className="flex items-center gap-4">
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" className="w-10 h-10 object-contain dark:invert opacity-70 group-hover:opacity-100 transition-opacity" />
-                                            <h4 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">LeetCode</h4>
+                                            <h4 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">LeetCode</h4>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <span className="px-4 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm rounded-lg border border-blue-100 dark:border-blue-800/50">Top 7%</span>
@@ -206,10 +206,10 @@ export default function Achievements() {
                                 <div className="relative overflow-hidden bg-white dark:bg-[#111827] border border-gray-100 dark:border-gray-800 p-8 md:p-10 rounded-[2.5rem] shadow-xl hover:shadow-2xl hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-500 h-full flex flex-col justify-center group">
                                     <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500 opacity-0 group-hover:opacity-10 blur-3xl rounded-full pointer-events-none transition-opacity duration-500" />
 
-                                    <div className="flex justify-between items-start mb-6" style={{ transform: "translateZ(40px)" }}>
+                                    <div className="flex flex-wrap justify-between items-start gap-4 mb-6" style={{ transform: "translateZ(40px)" }}>
                                         <div className="flex items-center gap-4">
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/GeeksforGeeks.svg" alt="GeeksforGeeks" className="w-10 h-10 object-contain dark:invert opacity-70 group-hover:opacity-100 transition-opacity" />
-                                            <h4 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight">GeeksforGeeks</h4>
+                                            <h4 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">GeeksforGeeks</h4>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <span className="px-4 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm rounded-lg border border-blue-100 dark:border-blue-800/50">Rank 2</span>

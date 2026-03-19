@@ -7,7 +7,7 @@ import { motion, AnimatePresence, animate } from 'framer-motion';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme } = useTheme(true);
   const location = useLocation();
 
   useEffect(() => {
