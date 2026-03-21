@@ -42,7 +42,7 @@ export default function Hero() {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-tight text-gray-900 dark:text-white flex flex-wrap justify-center items-center">
             <span>
-              <TypewriterText text="Hi, I'm" delayOffset={0.2} />
+              <TypewriterText text="Hi, I'm" delayOffset={0.5} />
             </span>
             <br className="md:hidden" />
             <span className="text-gradient ml-3 md:ml-4">

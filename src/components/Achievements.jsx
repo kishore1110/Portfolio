@@ -187,7 +187,7 @@ export default function Achievements() {
                                             </div>
                                             <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
                                                 <p className="text-gray-500 dark:text-gray-400 font-semibold text-xs uppercase tracking-wider mb-1">Max Rating</p>
-                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1808</p>
+                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1820</p>
                                             </div>
                                         </div>
                                     </div>
