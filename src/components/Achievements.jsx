@@ -58,8 +58,8 @@ export default function Achievements() {
     const honors = [
         {
             title: 'Mahatma Gandhi Scholarship',
-            subtitle: 'Consecutive Winner, 2023 & 2024',
-            description: 'Awarded by Kumaraguru College of Technology for outstanding academic excellence in the CSE department. Recognized for consistent top performance across semesters. Received a cash prize of ₹10,000 each year and a certificate of merit.',
+            subtitle: 'Consecutive Winner, 2023, 2024 & 2025',
+            description: 'Awarded by Kumaraguru College of Technology for outstanding academic excellence in the CSE department. Recognized for consistent top performance across semesters for three consecutive years. Received a cash prize of ₹10,000 each year and a certificate of merit.',
             icon: Trophy,
             color: 'text-blue-600 dark:text-blue-400',
             bg: 'bg-blue-50 dark:bg-blue-500/10',
@@ -174,7 +174,8 @@ export default function Achievements() {
                                             <h4 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">LeetCode</h4>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="px-4 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm rounded-lg border border-blue-100 dark:border-blue-800/50">Top 7%</span>
+                                            <span className="px-4 py-1.5 bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 font-bold text-sm rounded-lg border border-amber-100 dark:border-amber-800/50">Knight</span>
+                                            <span className="px-4 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm rounded-lg border border-blue-100 dark:border-blue-800/50">Top 5%</span>
                                             <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" />
                                         </div>
                                     </div>
@@ -187,7 +188,7 @@ export default function Achievements() {
                                             </div>
                                             <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
                                                 <p className="text-gray-500 dark:text-gray-400 font-semibold text-xs uppercase tracking-wider mb-1">Max Rating</p>
-                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1820</p>
+                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1870</p>
                                             </div>
                                         </div>
                                     </div>
@@ -221,11 +222,11 @@ export default function Achievements() {
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
                                                 <p className="text-gray-500 dark:text-gray-400 font-semibold text-xs uppercase tracking-wider mb-1">Problems Solved</p>
-                                                <p className="text-3xl font-black text-gray-900 dark:text-white">350<span className="text-blue-600 dark:text-blue-400">+</span></p>
+                                                <p className="text-3xl font-black text-gray-900 dark:text-white">400<span className="text-blue-600 dark:text-blue-400">+</span></p>
                                             </div>
                                             <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
                                                 <p className="text-gray-500 dark:text-gray-400 font-semibold text-xs uppercase tracking-wider mb-1">Coding Score</p>
-                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1450<span className="text-blue-600 dark:text-blue-400">+</span></p>
+                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1500<span className="text-blue-600 dark:text-blue-400">+</span></p>
                                             </div>
                                         </div>
                                     </div>
