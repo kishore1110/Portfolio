@@ -1,53 +1,23 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import { Link } from 'react-router-dom';
 
+/* Card — identical overlay approach to ProjectsPage.jsx (proven to work on mobile).
+   On touch devices, tapping an element activates :hover, so group-hover: classes
+   work for both desktop hover AND mobile tap with zero JavaScript. */
 function ProjectCard({ project, idx }) {
-  const [tapped, setTapped] = useState(false);
-  const cardRef = useRef(null);
-
-  // Dismiss overlay when tapping outside the card
-  useEffect(() => {
-    if (!tapped) return;
-    const handleOutside = (e) => {
-      if (cardRef.current && !cardRef.current.contains(e.target)) {
-        setTapped(false);
-      }
-    };
-    document.addEventListener('touchstart', handleOutside);
-    document.addEventListener('mousedown', handleOutside);
-    return () => {
-      document.removeEventListener('touchstart', handleOutside);
-      document.removeEventListener('mousedown', handleOutside);
-    };
-  }, [tapped]);
-
-  const handleCardClick = (e) => {
-    // Don't toggle if tapping a link
-    if (e.target.closest('a')) return;
-    setTapped((prev) => !prev);
-  };
-
   return (
     <motion.div
-      ref={cardRef}
       layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      onClick={handleCardClick}
-      className={[
-        'group w-[85vw] md:w-[350px] lg:w-[400px] shrink-0 snap-center relative bg-white dark:bg-[#111827] rounded-3xl overflow-hidden border transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col cursor-pointer',
-        tapped
-          ? 'border-blue-500/50 dark:border-blue-500/50 -translate-y-2 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]'
-          : 'border-gray-100 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50',
-      ].join(' ')}
+      className="group w-[85vw] md:w-[350px] lg:w-[400px] shrink-0 snap-center relative bg-white dark:bg-[#111827] rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col"
     >
-      {/* Image */}
       <div className="aspect-[16/10] overflow-hidden relative bg-gray-100 dark:bg-gray-800">
         <img
           src={project.image}
@@ -56,8 +26,8 @@ function ProjectCard({ project, idx }) {
           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-in-out"
         />
 
-        {/* ── Desktop hover overlay (hidden on mobile) ── */}
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex items-end p-6">
+        {/* Overlay — group-hover triggers on desktop hover AND mobile tap */}
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
           <div className="flex gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             <a
               href={project.github}
@@ -72,46 +42,6 @@ function ProjectCard({ project, idx }) {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-blue-600/90 backdrop-blur-md rounded-full text-white hover:bg-blue-600 transition-colors"
-            >
-              <ExternalLink className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-
-        {/* ── Mobile tap overlay (hidden on desktop) ──
-            Uses inline style for opacity & transform to avoid Tailwind
-            class-ordering conflicts (opacity-0 vs opacity-100 on same element). */}
-        <div
-          className="absolute inset-0 md:hidden bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent flex items-end p-6"
-          style={{
-            opacity: tapped ? 1 : 0,
-            transition: 'opacity 300ms ease',
-            pointerEvents: 'none',
-          }}
-        >
-          <div
-            className="flex gap-4"
-            style={{
-              transform: tapped ? 'translateY(0)' : 'translateY(1rem)',
-              transition: 'transform 300ms ease',
-              pointerEvents: 'auto',
-            }}
-          >
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href={project.live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-blue-600/90 backdrop-blur-md rounded-full text-white transition-colors"
-              onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink className="w-5 h-5" />
             </a>
