@@ -40,7 +40,7 @@ export const projects = [
     description: 'Built an AI system for Indian cattle and buffalo breed classification using YOLOv8n and EfficientNet-B1 (85%+ accuracy). Deployed on Hugging Face Spaces with a Flask API and integrated into a Flutter app for real-time, cloud-based inference.',
     tags: ['Python', 'Flask', 'Flutter', 'YOLO', 'EfficientNet-B1','Hugging Face'],
     github: 'https://github.com/kishore1110/CattleX',
-    live: 'https://drive.google.com/file/d/1D6D9Dfpua68znVd_RiEZ_Zmp26Eypjw-/view?usp=sharing',
+    live: 'https://drive.google.com/file/d/1Mt0oa00cmWXS0K0ZAOPtrbSZBObQETeE/view?usp=sharing',
     image: CattleX
   },
   {
