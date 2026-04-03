@@ -1,62 +1,99 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projects } from '../data/projects';
 import { Link } from 'react-router-dom';
 
+/* ─── Mobile tap overlay ────────────────────────────────────────────────────────
+   Separate component so state is isolated. Uses inline styles (opacity / transform)
+   to bypass Tailwind's CSS class-ordering issue where opacity-0 and opacity-100 on
+   the same element could conflict unpredictably.
+──────────────────────────────────────────────────────────────────────────────── */
+/* Pure display component — receives open state from parent card */
+function MobileTapOverlay({ project, open }) {
+  return (
+    <div className="absolute inset-0 md:hidden pointer-events-none">
+      {/* Gradient overlay — inline opacity bypasses Tailwind class-ordering */}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent transition-opacity duration-300 flex items-end p-6"
+        style={{ opacity: open ? 1 : 0 }}
+      >
+        {/* Buttons — inline transform bypasses Tailwind class-ordering */}
+        <div
+          className="flex gap-4 transition-transform duration-300 pointer-events-auto"
+          style={{ transform: open ? 'translateY(0)' : 'translateY(1rem)' }}
+        >
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Github className="w-5 h-5" />
+          </a>
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 bg-blue-600/90 backdrop-blur-md rounded-full text-white transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ExternalLink className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProjectCard({ project, idx }) {
   const [tapped, setTapped] = useState(false);
   const cardRef = useRef(null);
 
-  // Dismiss overlay when tapping outside the card
-  const handleOutsideClick = useCallback((e) => {
-    if (cardRef.current && !cardRef.current.contains(e.target)) {
-      setTapped(false);
-    }
-  }, []);
-
+  // Dismiss when tapping outside the card (mobile only)
   useEffect(() => {
-    if (tapped) {
-      document.addEventListener('touchstart', handleOutsideClick);
-      document.addEventListener('mousedown', handleOutsideClick);
-    }
-    return () => {
-      document.removeEventListener('touchstart', handleOutsideClick);
-      document.removeEventListener('mousedown', handleOutsideClick);
+    if (!tapped) return;
+    const handleOutside = (e) => {
+      if (cardRef.current && !cardRef.current.contains(e.target)) {
+        setTapped(false);
+      }
     };
-  }, [tapped, handleOutsideClick]);
+    document.addEventListener('touchstart', handleOutside);
+    document.addEventListener('mousedown', handleOutside);
+    return () => {
+      document.removeEventListener('touchstart', handleOutside);
+      document.removeEventListener('mousedown', handleOutside);
+    };
+  }, [tapped]);
 
-  const handleCardTap = (e) => {
-    // Only intercept on touch / non-hover devices
-    if (window.matchMedia('(hover: none)').matches) {
-      // Don't intercept taps on the actual links
-      if (e.target.closest('a')) return;
-      e.preventDefault();
-      setTapped((prev) => !prev);
-    }
+  // Only activate tap behaviour on touch/non-hover devices
+  const handleCardClick = (e) => {
+    if (!window.matchMedia('(hover: none)').matches) return;
+    if (e.target.closest('a')) return;
+    setTapped((prev) => !prev);
   };
 
   return (
     <motion.div
       ref={cardRef}
+      data-card
       layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      onClick={handleCardTap}
+      onClick={handleCardClick}
       className={[
         'group w-[85vw] md:w-[350px] lg:w-[400px] shrink-0 snap-center relative bg-white dark:bg-[#111827] rounded-3xl overflow-hidden border transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col',
         tapped
-          ? 'border-blue-500/50 dark:border-blue-500/50 -translate-y-2 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]'
+          ? 'border-blue-500/50 dark:border-blue-500/50 -translate-y-2 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]'
           : 'border-gray-100 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50',
       ].join(' ')}
     >
-      {/* Image area — tap to reveal on mobile */}
-      <div
-        className="aspect-[16/10] overflow-hidden relative bg-gray-100 dark:bg-gray-800"
-      >
+      {/* Image */}
+      <div className="aspect-[16/10] overflow-hidden relative bg-gray-100 dark:bg-gray-800">
         <img
           src={project.image}
           alt={project.title}
@@ -64,27 +101,14 @@ function ProjectCard({ project, idx }) {
           className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-in-out"
         />
 
-        {/* Overlay: desktop = hover, mobile = tap-toggled */}
-        <div
-          className={[
-            'absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent transition-opacity duration-300 flex items-end p-6',
-            tapped ? 'opacity-100' : 'opacity-0',
-            'md:opacity-0 md:group-hover:opacity-100',
-          ].join(' ')}
-        >
-          <div
-            className={[
-              'flex gap-4 transition-transform duration-300',
-              tapped ? 'translate-y-0' : 'translate-y-4',
-              'md:translate-y-4 md:group-hover:translate-y-0',
-            ].join(' ')}
-          >
+        {/* Desktop hover overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex items-end p-6">
+          <div className="flex gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-gray-900 transition-colors"
-              onClick={(e) => e.stopPropagation()}
             >
               <Github className="w-5 h-5" />
             </a>
@@ -93,15 +117,17 @@ function ProjectCard({ project, idx }) {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-blue-600/90 backdrop-blur-md rounded-full text-white hover:bg-blue-600 transition-colors"
-              onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink className="w-5 h-5" />
             </a>
           </div>
         </div>
+
+        {/* Mobile tap overlay — controlled by card-level tapped state */}
+        <MobileTapOverlay project={project} open={tapped} />
       </div>
 
-      <div className="p-8 flex-1 flex flex-col bg-gradient-to-b from-transparent to-gray-50/50 dark:to-black/20">
+      <div className="p-6 md:p-8 flex-1 flex flex-col bg-gradient-to-b from-transparent to-gray-50/50 dark:to-black/20">
         <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {project.title}
         </h3>
