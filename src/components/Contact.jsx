@@ -56,9 +56,9 @@ export default function Contact() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white">Let&apos;s Work Together</h2>
-                    <p className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                    {/* <p className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
                         I&apos;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
-                    </p>
+                    </p> */}
                 </motion.div>
 
                 <motion.div
