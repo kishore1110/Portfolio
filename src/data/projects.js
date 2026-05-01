@@ -11,7 +11,7 @@ export const projects = [
         id: 1,
         title: 'Production & Sales System',
         description: 'Built a web and mobile system to digitize production and sales tracking for a textile company, used daily by supervisors and administrators. Reduced errors by 70% and saved 2-3 hours per day of administrative overhead.',
-        tags: ['React', 'Tailwind CSS', 'Node.js', 'Flutter', 'Firebase', 'Cloudinary'],
+        tags: ['React', 'Tailwind CSS', 'Flutter', 'Firebase', 'Cloudinary'],
         github: 'https://github.com/kishore1110/shunmugam-textiles-web',
         live: 'https://www.shunmugamtextile.com',
         image: shunmugamImg
@@ -20,7 +20,7 @@ export const projects = [
         id: 2,
         title: 'DSA Partner Extension',
         description: 'A Chrome extension to track and review DSA problems from LeetCode and GeeksforGeeks efficiently, actively used by 25+ users with a 4.8 rating on Chrome Web Store.',
-        tags: ['React', 'Manifest V3', 'localStorage API'],
+        tags: ['React', 'Manifest V3', 'Chrome API'],
         github: 'https://github.com/kishore1110/DSA-Partner',
         live: 'https://chromewebstore.google.com/detail/dsa-partner/mbfpkgojkdhbeohcaldjojfhehcbncea?utm_source=item-share-cb',
         image: DSA
@@ -29,12 +29,12 @@ export const projects = [
         id: 3,
         title: 'CattleX – Breed Recognition',
         description: 'Built an AI system for Indian cattle and buffalo breed classification using YOLOv8n and EfficientNet-B1 (85%+ accuracy). Deployed on Hugging Face Spaces with a Flask API and integrated into a Flutter app for real-time, cloud-based inference.',
-        tags: ['Python', 'Flask', 'Flutter', 'YOLO', 'EfficientNet-B1', 'Hugging Face'],
+        tags: ['Python', 'FastAPI', 'Flutter', 'YOLOv8n', 'EfficientNet-B0', 'Hugging Face'],
         github: 'https://github.com/kishore1110/CattleX',
         live: 'https://drive.google.com/file/d/1Mt0oa00cmWXS0K0ZAOPtrbSZBObQETeE/view?usp=sharing',
         image: CattleX
     },
-    {
+    {   
         id: 4,
         title: 'Cafluence',
         description: ' Built a full-stack platform connecting local shop owners and influencers for paid promotions and implemented role-based onboarding and service listings, enabling influencers to manage multiple offerings with pricing.',
