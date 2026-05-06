@@ -213,7 +213,7 @@ export default function Achievements() {
                                             <h4 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">GeeksforGeeks</h4>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="px-4 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm rounded-lg border border-blue-100 dark:border-blue-800/50">Rank 2</span>
+                                            <span className="px-4 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold text-sm rounded-lg border border-blue-100 dark:border-blue-800/50">Rank 3</span>
                                             <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" />
                                         </div>
                                     </div>
