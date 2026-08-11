@@ -184,7 +184,7 @@ export default function Achievements() {
                                         <div className="grid grid-cols-2 gap-4">
                                             <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
                                                 <p className="text-gray-500 dark:text-gray-400 font-semibold text-xs uppercase tracking-wider mb-1">Problems Solved</p>
-                                                <p className="text-3xl font-black text-gray-900 dark:text-white">900<span className="text-blue-600 dark:text-blue-400">+</span></p>
+                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1000<span className="text-blue-600 dark:text-blue-400">+</span></p>
                                             </div>
                                             <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
                                                 <p className="text-gray-500 dark:text-gray-400 font-semibold text-xs uppercase tracking-wider mb-1">Max Rating</p>
@@ -226,7 +226,7 @@ export default function Achievements() {
                                             </div>
                                             <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-2xl border border-gray-100 dark:border-gray-800">
                                                 <p className="text-gray-500 dark:text-gray-400 font-semibold text-xs uppercase tracking-wider mb-1">Coding Score</p>
-                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1500<span className="text-blue-600 dark:text-blue-400">+</span></p>
+                                                <p className="text-3xl font-black text-gray-900 dark:text-white">1600<span className="text-blue-600 dark:text-blue-400">+</span></p>
                                             </div>
                                         </div>
                                     </div>

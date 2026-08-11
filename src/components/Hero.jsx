@@ -56,7 +56,7 @@ export default function Hero() {
                         transition={{ delay: 1.2, duration: 0.8 }}
                         className="text-2xl md:text-3xl font-bold text-gray-700 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-snug"
                     >
-                        Full Stack Developer | <br className="md:hidden" />
+                        Software Developer | <br className="md:hidden" />
                         DSA Enthusiast
                     </motion.h2>
 
@@ -86,7 +86,7 @@ export default function Hero() {
                         </button>
 
                         <a
-                            href="https://drive.google.com/file/d/1VXODY3EGePBhrwbnn44LjB6AkzD6Qaqb/view?usp=drive_link"
+                            href="https://drive.google.com/file/d/1OpSnzjF6fTFdAgQGy0nOpWC8oHwJ9vlJ/view?usp=drive_link"
                             target='_blank'
                             className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-white dark:bg-[#111827] text-gray-900 dark:text-white border-2 border-gray-200 dark:border-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:border-blue-500 hover:text-blue-600 dark:hover:border-blue-500 dark:hover:text-blue-400 transition-all duration-300"
                         >

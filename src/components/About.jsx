@@ -38,7 +38,7 @@ export default function About() {
                             </div>
 
                             <div className="bg-white dark:bg-[#111827] rounded-[2rem] p-6 sm:p-8 border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/50 dark:shadow-none flex flex-col justify-center">
-                                <h4 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2 text-gray-900 dark:text-white">1300<span className="text-blue-600">+</span></h4>
+                                <h4 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2 text-gray-900 dark:text-white">1400<span className="text-blue-600">+</span></h4>
                                 <p className="text-gray-500 dark:text-gray-400 uppercase tracking-widest font-bold text-sm">DSA Problems Solved</p>
                             </div>
 
